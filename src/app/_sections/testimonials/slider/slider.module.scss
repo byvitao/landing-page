@@ -1,0 +1,124 @@
+@use "../../../breakpoints";
+
+//SOBRESCREVENDO ESTILOS DOS CONTROLES DO SWIPER ==========
+:global(.swiper-button-next),
+:global(.swiper-button-prev) {
+  color: var(--light-color) !important;
+  width: 40px !important;
+  height: 40px !important;
+}
+
+:global(.swiper-button-next::after),
+:global(.swiper-button-prev::after) {
+  font-size: 20px !important;
+}
+
+:global(.swiper-pagination-bullet) {
+  background: rgba(255, 255, 255, 0.5) !important;
+  width: 12px !important;
+  height: 12px !important;
+  opacity: 1 !important;
+}
+
+:global(.swiper-pagination-bullet-active) {
+  background: var(--dark-color) !important;
+}
+
+:global(.swiper-wrapper) {
+  transition-timing-function: linear !important;
+}
+
+:global(.swiper-slide) {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: start;
+}
+
+//FIM DA SOBRESCRIÇÃO =====================================
+
+.slider {
+  width: 100%;
+  padding: 3rem 12px !important;
+  position: relative;
+  z-index: 1;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 50px;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  &::before {
+    left: 0;
+    background: linear-gradient(to right, var(--light-color), transparent);
+  }
+
+  &::after {
+    right: 0;
+    background: linear-gradient(to left, var(--light-color), transparent);
+  }
+
+  .card {
+    position: relative;
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+    max-width: 300px;
+    overflow: hidden;
+
+    .imageWrapper {
+      width: 100%;
+      margin-bottom: 5px;
+      display: flex;
+      justify-content: center;
+
+      .print {
+        height: auto;
+        max-height: 400px;
+        display: block;
+        border-radius: 16px;
+        object-fit: contain;
+      }
+    }
+
+    .text {
+      position: relative;
+      padding: 1.25rem;
+      background: #25d365;
+      color: var(--dark-color);
+      border-radius: 16px;
+      font-size: clamp(.75rem, 2vw, .9rem);
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+
+        border-width: 0 20px 20px 20px;
+        border-style: solid;
+        border-color: transparent transparent #25d366 transparent;
+      }
+    }
+  }
+
+  @include breakpoints.respond-to("md") {
+    .card {
+      .imageWrapper {
+        .print {
+          width: auto;
+          max-height: 300px;
+        }
+      }
+    }
+  }
+}

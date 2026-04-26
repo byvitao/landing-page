@@ -1,0 +1,197 @@
+@use "../../breakpoints";
+
+.authority {
+  background: var(--background-light);
+  display: flex;
+  justify-content: center;
+
+  .sectionContent {
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 3rem 1rem;
+    display: grid;
+    gap: 50px;
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas: "content image";
+    margin-bottom: 20px;
+    align-items: center;
+
+    .content {
+      grid-area: content;
+
+      h2 {
+        font-size: clamp(1.25rem, 2vw, 1.75rem);
+        text-align: center;
+        margin-bottom: 1rem;
+        .emphasis {
+          color: var(--primary-color);
+        }
+        .name {
+          color: var(--soft-color);
+          font-weight: bolder;
+        }
+      }
+
+      .description {
+        font-size: 1rem;
+        line-height: 1.8;
+        color: var(--dark-color);
+        margin-bottom: 40px;
+        text-align: justify;
+      }
+
+      .statsGrid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        border-top: 1px solid #ddd;
+        padding-top: 30px;
+
+        .statItem {
+          display: flex;
+          flex-direction: column;
+          text-align: center;
+
+          strong {
+            font-size: 1.8rem;
+            color: #808000;
+            line-height: 1;
+          }
+
+          span {
+            font-size: 0.85rem;
+            color: #777;
+            margin-top: 5px;
+            font-weight: 500;
+            text-transform: uppercase;
+          }
+        }
+      }
+    }
+
+    .imageWrapper {
+      grid-area: image;
+      width: 100%;
+      height: fit-content;
+      max-width: 300px;
+      position: relative;
+
+      .photo {
+        width: 100%;
+        height: auto;
+        border-radius: 20px;
+        box-shadow: 20px 20px 0 var(--soft-color);
+        object-fit: cover;
+        display: block;
+      }
+
+      .experienceCard {
+        position: absolute;
+        bottom: -20px;
+        right: -20px;
+        background: var(--background-light);
+        max-width: 180px;
+        padding: 5px 10px;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, .1);
+        text-align: center;
+
+        span {
+          display: block;
+          font-size: clamp(.75rem, 1.25vw, 1.25rem);
+          font-weight: bold;
+          color: var(--soft-color);
+        }
+
+        p {
+          margin: 0;
+          font-size: clamp(.7rem, .6vw, 1rem);
+        }
+      }
+    }
+
+
+  }
+
+  @include breakpoints.respond-to("lg"){
+    .sectionContent {
+      padding: 0 2rem;
+      gap: 30px;
+
+      .imageWrapper {
+        .experienceCard {
+          max-width: 150px;
+          right: -20px;
+          bottom: -20px;
+          padding: 10px;
+        }
+      }
+    }
+  }
+
+  @include breakpoints.respond-to("md") {
+    .sectionContent {
+      grid-template-columns: 1fr;
+      grid-template-areas: "header" "image" "content";
+      justify-items: center;
+      
+      .content {
+        display: flex;
+        flex-direction: column;
+        
+        h2 { 
+          text-align: center;
+        }
+        
+        .description {
+           text-align: left;
+        }
+        
+        .statsGrid {
+          display: grid;
+          grid-template-columns: 1fr 1fr; 
+          
+          .statItem:last-child {
+            grid-column: span 2;
+          }
+        }
+      }
+
+      .imageWrapper {
+        width: calc(100% - 20px);
+        max-width: 200px;
+        left: -10px;
+        align-self: center;
+
+        .photo {
+          width: 100%;
+          height: auto;
+          border-radius: 20px;
+          box-shadow: 10px 10px 0 var(--soft-color);
+          object-fit: cover;
+          display: block;
+        }
+
+        .experienceCard {
+          max-width: 120px;
+          right: -10px;
+          bottom: -10px;
+          padding: 5px 5px;
+          text-align: center;
+
+          span {
+            display: block;
+            font-size: clamp(.75rem, 1.5vw, 1.75rem);
+            font-weight: bold;
+            color: var(--soft-color);
+          }
+
+          p {
+            margin: 0;
+            font-size: clamp(.6rem, .5vw, .8rem);
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,141 @@
+@use "../../breakpoints";
+
+.solution {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  min-height: 60vh;
+  width: 100%;
+  overflow: hidden;
+  background: var(--background-light);
+
+  .imageWrapper {
+    position: relative;
+    height: 100%;
+    max-width: 800px;
+
+    .background {
+      width: 100%;
+      height: 100%;
+      object-position: top;
+      object-fit: cover;
+      --grad-to-right: linear-gradient(to right, #000 calc(100% - 100px), transparent 100%);
+      -webkit-mask-image: var(--grad-to-right);
+      mask-image: var(--grad-to-right);
+      -webkit-mask-composite: source-in; 
+      mask-composite: intersect;
+    }
+  }
+
+  .sectionContent {
+    padding: 4rem;
+    z-index: 3;
+    display: grid;
+    justify-items: center;
+
+    h2 {
+      font-size: clamp(1.25rem, 2.5vw, 2rem);
+      margin-bottom: 1rem;
+      text-align: center;
+    
+      .emphasis {
+        color: var(--primary-color);
+      }
+    }
+
+    .contentWrapper {
+      display: grid;
+      justify-items: center;
+      max-width: 700px;
+      p {
+        font-size: clamp(1rem, 1.2vw, 1.2rem);
+        line-height: 1.6;
+        margin-bottom: 30px;
+      }
+
+      .methodList {
+        list-style: none;
+        max-width: 500px;
+
+        li {
+          margin-bottom: 20px;
+          padding-left: 30px;
+          position: relative;
+          font-size: clamp(.8rem, 1.1vw, 1.1rem);
+
+          &:last-child {
+            margin: 0;
+          }
+
+          &::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #009100;
+            font-weight: bold;
+            font-size: 1.2rem;
+          }
+        }
+      }
+    }
+  }
+
+  @include breakpoints.respond-to("xl"){
+    position: relative;
+    padding: 1rem;
+    grid-template-columns: 1fr;
+    justify-items: center;
+
+    .sectionContent {
+      //======GLASSMORPHISM CONTAINER======== 
+      background: rgba(255, 255, 255, .1);
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, .3);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, .15);
+      backdrop-filter: blur(10px);
+      //==========================================
+      position: relative;
+      max-width: 1000px;
+      padding: 1rem 2rem;
+      color: var(--light-color);
+      text-shadow: 1px 1px 3px var(--dark-color);
+
+      h2 {
+        font-size: clamp(1.75rem, 4vw, 3rem);
+      }
+
+      .contentWrapper {
+        max-width: 800px;
+
+        p {
+          font-size: clamp(.75rem, 4vw, 1.75rem);
+        }
+
+        .methodList {
+          max-width: 650px;
+          li {
+            font-size: clamp(.5rem, 3.5vw, 1.5rem);
+          }
+        }
+      }
+    }
+
+    .imageWrapper {
+      position: absolute;
+      inset: 0;
+      max-width: none;
+
+      .background {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-position: top; 
+        object-fit: cover;
+        mask-image: none;
+        -webkit-mask-image: none;
+      }
+    }
+  }
+}
