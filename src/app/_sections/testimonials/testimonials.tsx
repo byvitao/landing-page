@@ -3,7 +3,6 @@ import Slider from "./slider/slider";
 import { getTestimonials } from "./data";
 import CanvasBackground from "./canvas-background/canvas-background";
 import Divider from "./divider/divider";
-import Skeleton from "@mui/material/Skeleton";
 import { Suspense } from "react";
 
 export default async function Testimonials() {

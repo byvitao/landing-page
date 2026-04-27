@@ -4,9 +4,9 @@ export interface IApiResponse<T> {
   success: boolean;
 }
 
-export async function getFromApi<T>(endpoint: string): Promise<IApiResponse<T>> {
+export async function getFromApi<T>(endpoint: string, options?: RequestInit): Promise<IApiResponse<T>> {
   try {
-    const response = await fetch(`${apiUrl}/${endpoint}`);
+    const response = await fetch(`${apiUrl}/${endpoint}`, options);
 
     if (!response.ok) {
       console.error(`[API] HTTP ${response.status} ${response.statusText} - ${endpoint}`);

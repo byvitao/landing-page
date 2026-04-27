@@ -43,5 +43,16 @@ export const locations: ILocation[] = [
     mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3466.142117843441!2d-51.10027288810918!3d-29.68665907500201!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x951943f56d43090d%3A0xce6a5aaf44239119!2sPOWER%20CENTRO%20DE%20TREINAMENTO!5e0!3m2!1spt-BR!2sbr!4v1772333240888!5m2!1spt-BR!2sbr",
     latitude: "-29.6865285220353",
     longitude: "-51.09771407792596"
+  },
+  {
+    title: "Gramado",
+    address: "R. Emilio Leobet, 1517",
+    neighborhood: "Dutra",
+    city: "Gramado",
+    state: "RS",
+    zipCode: "95670-000",
+    mapUrl: "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3477.1437949971255!2d-50.86696382368358!3d-29.366078600153447!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjnCsDIxJzU3LjkiUyA1MMKwNTEnNTEuOCJX!5e0!3m2!1spt-BR!2sbr!4v1777307727494!5m2!1spt-BR!2sbr",
+    latitude: "-29.365943021778882",
+    longitude: "-50.864388903153895"
   }
 ]
