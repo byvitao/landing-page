@@ -1,7 +1,7 @@
 import styles from "./faq.module.scss";
 import { getFaqs } from "./data";
 import Divider from "./divider/divider";
-import { Skeleton } from "@mui/material";
+import Skeleton from "@mui/material/Skeleton";
 import { Suspense } from "react";
 
 export default async function FAQ() {

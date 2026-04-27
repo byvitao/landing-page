@@ -8,7 +8,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { SwiperOptions } from "swiper/types";
 import React from "react";
-import { Skeleton } from "@mui/material";
+import Skeleton from "@mui/material/Skeleton";
 
 const MIN_SLIDES_PER_VIEW = 5;
 
@@ -40,7 +40,6 @@ const swiperConfig: SwiperOptions = {
 function getOptimizedUrl(url: string) {
   return url.replace("/upload/", "/upload/w_256,h_384,c_fit,f_auto,q_auto/");
 }
-
 
 export default function Slider({ testimonials }: { testimonials?: ITestimonial[] }) {
 
