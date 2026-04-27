@@ -6,10 +6,10 @@ export default function Solution() {
   return (
     <section id="solution" className={styles.solution}>
       <div className={styles.imageWrapper}>
-        <Image 
+        <Image
           src={solutionImage}
           alt="Vitor Hugo Souza"
-          sizes="(max-width: 768px) 100vw, 50vw"
+          sizes="(max-width: 768px) 100vw, 807px"
           className={styles.background}
         />
       </div>
@@ -32,7 +32,7 @@ export default function Solution() {
               <strong>Anamnese Personalizada:</strong> Alinhamento do plano ao seu histórico metabólico e estilo de vida.
             </li>
             <li data-animate>
-            <strong>Planejamento Nutricional Estratégico:</strong> Dieta para hipertrofia ou emagrecimento sem restrições desnecessárias.
+              <strong>Planejamento Nutricional Estratégico:</strong> Dieta para hipertrofia ou emagrecimento sem restrições desnecessárias.
             </li>
           </ul>
         </div>

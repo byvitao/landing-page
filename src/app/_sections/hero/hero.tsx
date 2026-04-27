@@ -15,7 +15,8 @@ export default function Hero() {
           priority
           fill
           sizes="100vw"
-          quality={75}
+          quality={60}
+          placeholder="blur"
           className={styles.background}
         />
         <div className={styles.content}>
