@@ -13,10 +13,9 @@ export default function Hero() {
           src={heroBg}
           alt="Imagem de fundo escura"
           priority
-          fetchPriority="high"
-          loading="eager"
           fill
           sizes="100vw"
+          quality={75}
           className={styles.background}
         />
         <div className={styles.content}>
@@ -61,9 +60,7 @@ export default function Hero() {
             src={heroImage}
             alt="Vitor Hugo Souza - Nutricionista"
             priority
-            fetchPriority="high"
-            loading="eager"
-            sizes="(max-width: 768px) 100vw, 50vw"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
             className={styles.photo}
           />
         </div>
