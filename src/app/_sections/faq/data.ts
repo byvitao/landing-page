@@ -1,6 +1,6 @@
 import { getFromApi } from "@/shared/api";
 
-interface IFaq {
+export interface IFaq {
   question: string;
   answer: string;
 }

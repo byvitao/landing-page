@@ -6,7 +6,6 @@ import { Swiper, SwiperSlide, } from "swiper/react";
 import { Navigation, Autoplay, A11y, FreeMode } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-import "swiper/css/pagination";
 import { SwiperOptions } from "swiper/types";
 import React from "react";
 import { Skeleton } from "@mui/material";
@@ -39,29 +38,52 @@ const swiperConfig: SwiperOptions = {
   }
 }
 
-export default function Slider({ testimonials }: { testimonials: ITestimonial[] }) {
-  const repeated = testimonials.length < MIN_SLIDES_PER_VIEW
-    ? Array.from({ length: Math.ceil(MIN_SLIDES_PER_VIEW / testimonials.length) }, () => testimonials).flat()
-    : testimonials;
+export default function Slider({ testimonials }: { testimonials?: ITestimonial[] }) {
+  let data: ITestimonial[] | null = null;
+  if (testimonials) {
+    data = testimonials.length < MIN_SLIDES_PER_VIEW
+      ? Array.from({ length: Math.ceil(MIN_SLIDES_PER_VIEW / testimonials.length) }, () => testimonials).flat()
+      : testimonials;
+  }
 
   return (
     <Swiper
       {...swiperConfig}
       className={styles.slider}
     >
-      {repeated.map((testimonial, index) => {
-        return (
-          <SwiperSlide key={index}>
-            <Card testimonial={testimonial} />
-          </SwiperSlide>
-        );
-      })}
+      {
+        !!data
+          ? data.map((testimonial, index) => {
+            return (
+              <SwiperSlide key={index}>
+                <Card testimonial={testimonial} />
+              </SwiperSlide>
+            );
+          })
+          : <FallbackSwiper />
+      }
     </Swiper>
   );
 }
 
-function Card({ testimonial }: { testimonial: ITestimonial }) {
+function Card({ testimonial }: { testimonial?: ITestimonial }) {
   const [isLoading, setIsLoading] = React.useState<boolean>(true);
+
+  if (!testimonial) {
+    return (
+      <article className={styles.card}>
+        <figure className={styles.imageWrapper}>
+          <Skeleton variant="rectangular" width={200} height={300} sx={{ borderRadius: "16px", display: "block", mb: "10px" }} />
+        </figure>
+        <div className={styles.text}>
+          <blockquote>
+            <Skeleton variant="text" width={260} height={100} />
+          </blockquote>
+        </div>
+      </article>
+    );
+  }
+
   return (
     <article className={styles.card}>
       <figure className={styles.imageWrapper}>
@@ -69,10 +91,12 @@ function Card({ testimonial }: { testimonial: ITestimonial }) {
         <Image
           src={testimonial.image}
           alt={`Depoimento: ${testimonial.description}`}
-          width={400}
-          height={500}
+          width={200}
+          height={300}
           className={styles.print}
           onLoad={() => setIsLoading(false)}
+          priority={false}
+          style={{ objectFit: "contain", borderRadius: '16px' }}
         />
       </figure>
       <div className={styles.text}>
@@ -81,5 +105,17 @@ function Card({ testimonial }: { testimonial: ITestimonial }) {
         </blockquote>
       </div>
     </article>
+  )
+}
+
+function FallbackSwiper() {
+  return (
+    <SwiperSlide>
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+    </SwiperSlide>
   )
 }
