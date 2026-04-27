@@ -37,8 +37,13 @@ const swiperConfig: SwiperOptions = {
     paginationBulletMessage: 'Ir para o slide {{index}}',
   }
 }
+function getOptimizedUrl(url: string) {
+  return url.replace("/upload/", "/upload/w_256,h_384,c_fit,f_auto,q_auto/");
+}
+
 
 export default function Slider({ testimonials }: { testimonials?: ITestimonial[] }) {
+
   let data: ITestimonial[] | null = null;
   if (testimonials) {
     data = testimonials.length < MIN_SLIDES_PER_VIEW
@@ -87,9 +92,9 @@ function Card({ testimonial }: { testimonial?: ITestimonial }) {
   return (
     <article className={styles.card}>
       <figure className={styles.imageWrapper}>
-        {isLoading && <Skeleton variant="rectangular" width={200} height={300} sx={{ borderRadius: "16px", display: "block", mb: "10px" }} />}
+        {isLoading && <Skeleton variant="rectangular" width={300} height={300} sx={{ borderRadius: "16px", display: "block", mb: "10px" }} />}
         <Image
-          src={testimonial.image}
+          src={getOptimizedUrl(testimonial.image)}
           alt={`Depoimento: ${testimonial.description}`}
           width={200}
           height={300}

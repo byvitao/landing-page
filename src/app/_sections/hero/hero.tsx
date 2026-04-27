@@ -12,7 +12,6 @@ export default function Hero() {
         <Image
           src={heroBg}
           alt="Imagem de fundo escura"
-          priority
           fill
           sizes="100vw"
           quality={60}
