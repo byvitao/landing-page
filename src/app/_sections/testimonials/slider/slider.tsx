@@ -93,6 +93,7 @@ function Card({ testimonial }: { testimonial?: ITestimonial }) {
           alt={`Depoimento: ${testimonial.description}`}
           width={200}
           height={300}
+          sizes="200px"
           className={styles.print}
           onLoad={() => setIsLoading(false)}
           priority={false}

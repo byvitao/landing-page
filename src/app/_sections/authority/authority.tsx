@@ -6,11 +6,11 @@ import styles from "./authority.module.scss";
 const START_PROFESSIONAL_EXP = 2010;
 const START_SPORT_EXP = 2008;
 
-export default function Authority(){
-  const now = new Date().getFullYear(); 
+export default function Authority() {
+  const now = new Date().getFullYear();
   const yearsProfessionalExp = now - START_PROFESSIONAL_EXP;
   const yearsSportExp = now - START_SPORT_EXP;
-  
+
   return (
     <>
       <section id="authority" className={styles.authority}>
@@ -40,12 +40,12 @@ export default function Authority(){
               </div>
             </div>
           </div>
-          
+
           <div className={styles.imageWrapper}>
             <Image
               src={authorityImage}
               alt="Vitor Hugo Souza"
-              sizes="(max-width: 768px) 100vw, 50vw"
+              sizes="(max-width: 768px) 100vw, 300px"
               className={styles.photo}
             />
             <div className={styles.experienceCard}>
