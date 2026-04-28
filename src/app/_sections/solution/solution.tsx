@@ -9,6 +9,8 @@ export default function Solution() {
         <Image
           src={solutionImage}
           alt="Vitor Hugo Souza"
+          fill
+          quality={60}
           sizes="(max-width: 768px) 100vw, 807px"
           className={styles.background}
         />
