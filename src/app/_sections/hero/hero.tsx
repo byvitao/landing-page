@@ -16,6 +16,7 @@ export default function Hero() {
           fill
           sizes="100vw"
           quality={40}
+          priority
           placeholder="blur"
           className={styles.background}
         />
@@ -61,6 +62,7 @@ export default function Hero() {
             src={heroImage}
             alt="Vitor Hugo Souza - Nutricionista"
             priority
+            fetchPriority="high"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
             className={styles.photo}
           />
