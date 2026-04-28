@@ -10,7 +10,8 @@ export default function Solution() {
           src={solutionImage}
           alt="Vitor Hugo Souza"
           quality={60}
-          sizes="(max-width: 1280px) 100vw, 807px"
+          fill
+          sizes="(max-width: 1280px) 100vw, 800px"
           className={styles.background}
         />
       </div>
