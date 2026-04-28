@@ -1,0 +1,148 @@
+import Image from "next/image";
+import Link from "next/link";
+import styles from "./footer.module.scss";
+import { PowerCTIcon } from "@/assets/svgs";
+import hero from "@/assets/images/hero.jpeg";
+import { EMAIL, INSTAGRAM, TELEPHONE, TELEPHONE_FORMATTED, WHATSAPP_TEXT } from "@/shared/contact";
+import { secondsUntilNewYear } from "@/utils/yearly-revalidate";
+import Divider from "./divider/divider";
+
+const IconLocation = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+  </svg>
+);
+
+const IconPhone = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+  </svg>
+);
+
+const IconEmail = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+  </svg>
+);
+
+const IconInstagram = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+    <defs>
+      <radialGradient id="ig-radial" cx="30%" cy="110%" r="130%">
+        <stop offset="0%" stopColor="#ffdc80" />
+        <stop offset="30%" stopColor="#f77737" />
+        <stop offset="55%" stopColor="#fd1d1d" />
+        <stop offset="70%" stopColor="#c13584" />
+        <stop offset="100%" stopColor="#405de6" />
+      </radialGradient>
+    </defs>
+    <path
+      fill="url(#ig-radial)"
+      d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"
+    />
+  </svg>
+);
+
+const IconWhatsapp = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z" />
+  </svg>
+);
+
+export const revalidate = secondsUntilNewYear();
+
+export default function Footer() {
+  const year = new Date().getFullYear();
+
+  return (
+    <>
+      <Divider />
+      <footer className={styles.footer} aria-label="Rodapé do site Nutri Clara">
+        <div className={styles.main}>
+          <section className={styles.identity} aria-label="Identidade e contato">
+            <div className={styles.brand}>
+              <span className={styles.logoIcon} aria-hidden="true">
+                <PowerCTIcon width={75} height={75} />
+              </span>
+              <div className={styles.logoText}>
+                <strong className={styles.logoName}>NUTRI VITOR</strong>
+                <span className={styles.logoSub}>HUGO SOUZA | Nutrição</span>
+              </div>
+              <div className={styles.photoWrapper} aria-hidden="true">
+                <Image
+                  src={hero}
+                  alt="Foto de Clara Almeida, nutricionista"
+                  width={80}
+                  height={80}
+                  sizes="72px"
+                  className={styles.photo}
+                />
+              </div>
+            </div>
+
+            <address className={styles.contact}>
+              <p>
+                <IconLocation />
+                <span>Rua Primeiro de Março, 467, Novo Hamburgo/RS</span>
+              </p>
+              <p>
+                <IconPhone />
+                <a href={`tel:+${TELEPHONE}`}>{TELEPHONE_FORMATTED}</a>
+              </p>
+              <p>
+                <IconEmail />
+                <a href={`mailto:${EMAIL}`}>
+                  {EMAIL}
+                </a>
+              </p>
+            </address>
+
+            <p className={styles.bio}>
+              Nutricionista graduado (CRN16209D), focado em saúde e performance.
+            </p>
+          </section>
+
+          <section className={styles.social} aria-label="Redes sociais">
+            <h2 className={styles.colTitle}>Redes Sociais</h2>
+            <p className={styles.socialHandle}>
+              <IconInstagram />
+              <a
+                href={`https://instagram.com/${INSTAGRAM}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Instagram @${INSTAGRAM}`}
+              >
+                @{INSTAGRAM}
+              </a>
+            </p>
+          </section>
+
+          <div className={styles.divider} role="separator" aria-hidden="true" />
+
+          <section className={styles.cta} aria-label="Agende sua consulta">
+            <h2 className={styles.ctaTitle}>AGENDE SUA CONSULTA</h2>
+            <a
+              href={`https://wa.me/${TELEPHONE}?text=${encodeURIComponent(WHATSAPP_TEXT)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.ctaBtn}
+              aria-label="Agendar consulta agora pelo WhatsApp"
+            >
+              <IconWhatsapp />
+              AGENDAR AGORA NO WHATSAPP
+            </a>
+            <p className={styles.ctaSub}>
+              Inicie sua jornada hoje!
+            </p>
+          </section>
+        </div>
+
+        <div className={styles.bottom}>
+          <p>
+            ©{year} Vitor Hugo Souza. Todos os direitos reservados. CRN16209D.
+          </p>
+        </div>
+      </footer>
+    </>
+  );
+}

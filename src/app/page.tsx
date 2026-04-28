@@ -7,6 +7,7 @@ import WhyMe from "./_sections/why-me/why-me";
 import Process from "./_sections/process/process";
 import FAQ from "./_sections/faq/faq";
 import Locations from "./_sections/locations/locations";
+import Footer from "./_sections/footer/footer";
 import { Metadata } from "next";
 import GlobalAnimations from "./global-animations";
 
@@ -33,6 +34,7 @@ export default function Home() {
             <Process />
             <FAQ />
             <Locations />
+            <Footer />
           </main>
         </div>
       </div>

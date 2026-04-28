@@ -4,6 +4,7 @@ import styles from "./hero.module.scss";
 import heroImage from "@/assets/images/hero.jpeg";
 import heroBg from "@/assets/images/hero-bg.png";
 import Divider from "./divider/divider";
+import { TELEPHONE, WHATSAPP_TEXT } from "@/shared/contact";
 
 export default function Hero() {
   return (
@@ -29,7 +30,7 @@ export default function Hero() {
           </p>
 
           <div className={styles.ctaGroup}>
-            <Link href="#" className={styles.primaryBtn}>
+            <Link href={`https://wa.me/${TELEPHONE}?text=${encodeURIComponent(WHATSAPP_TEXT)}`} className={styles.primaryBtn}>
               <svg
                 aria-hidden="true"
                 focusable="false"
