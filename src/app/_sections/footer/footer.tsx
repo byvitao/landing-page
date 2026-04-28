@@ -65,8 +65,8 @@ export default async function Footer() {
                 <Image
                   src={hero}
                   alt="Foto de Vitor Hugo Souza, nutricionista"
-                  width={80}
-                  height={80}
+                  width={72}
+                  height={72}
                   sizes="72px"
                   className={styles.photo}
                 />
