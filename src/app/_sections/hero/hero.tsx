@@ -63,7 +63,7 @@ export default function Hero() {
             alt="Vitor Hugo Souza - Nutricionista"
             priority
             fetchPriority="high"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+            sizes="(max-width: 768px) 100vw, 50vw"
             className={styles.photo}
           />
         </div>

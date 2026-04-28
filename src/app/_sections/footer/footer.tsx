@@ -69,6 +69,7 @@ export default async function Footer() {
                   height={72}
                   sizes="72px"
                   className={styles.photo}
+                  loading="lazy"
                 />
               </div>
             </div>
