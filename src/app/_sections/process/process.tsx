@@ -1,6 +1,7 @@
 import styles from "./process.module.scss";
 import { steps } from "./data";
 import Divider from "./divider/divider";
+import IconWhatsapp from "@/shared/components/WhatsappIcon";
 
 export default function Process() {
 
@@ -11,7 +12,7 @@ export default function Process() {
           <h2>
             Como <span className={styles.emphasis}>funciona</span>?
           </h2>
-          
+
           <ol className={styles.stepsGrid}>
             {steps.map((step) => (
               <li key={step.number} data-animate>
@@ -19,15 +20,30 @@ export default function Process() {
                   <header>
                     <span className={styles.stepNumber}>{step.number}</span>
                     <div className={styles.icon}>{step.icon}</div>
-                    <h3>{step.title}</h3>
+                    {step.href ? (
+                      <h3>
+                        <a
+                          href={step.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={styles.ctaBtn}
+                          aria-label="Agendar consulta agora pelo WhatsApp"
+                        >
+                          <IconWhatsapp />
+                          {step.title}
+                        </a>
+                      </h3>
+                    ) : (
+                      <h3>{step.title}</h3>
+                    )}
                   </header>
                   <p>{step.description}</p>
                 </article>
               </li>
             ))}
           </ol>
-        </div>
-      </section>
+        </div >
+      </section >
       <Divider />
     </>
   );

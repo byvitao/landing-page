@@ -4,6 +4,7 @@ const nextConfig: NextConfig = {
   cacheComponents: true,
   reactCompiler: true,
   images: {
+    qualities: [40, 60, 75],
     remotePatterns: [
       {
         protocol: "https",
