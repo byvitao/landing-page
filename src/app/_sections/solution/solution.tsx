@@ -13,6 +13,7 @@ export default function Solution() {
           fill
           sizes="(max-width: 1280px) 100vw, 800px"
           className={styles.background}
+          loading="lazy"
         />
       </div>
 
