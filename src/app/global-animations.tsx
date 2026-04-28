@@ -1,7 +1,7 @@
 "use client";
 import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
-import ScrollSmoother from "gsap/ScrollSmoother";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { ScrollSmoother } from "gsap/dist/ScrollSmoother";
 import { useLayoutEffect } from "react";
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
