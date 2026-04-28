@@ -41,14 +41,11 @@ const cloudinaryLoader = ({ src, width }: { src: string; width: number }) => {
   return src.replace('/upload/', `/upload/w_${width},f_auto,q_auto,c_fit/`)
 }
 
-export default function Slider({ testimonials }: { testimonials?: ITestimonial[] }) {
+export default function Slider({ testimonials }: { testimonials: ITestimonial[] }) {
 
-  let data: ITestimonial[] | null = null;
-  if (testimonials) {
-    data = testimonials.length < MIN_SLIDES_PER_VIEW
-      ? Array.from({ length: Math.ceil(MIN_SLIDES_PER_VIEW / testimonials.length) }, () => testimonials).flat()
-      : testimonials;
-  }
+  const data = testimonials.length < MIN_SLIDES_PER_VIEW
+    ? Array.from({ length: Math.ceil(MIN_SLIDES_PER_VIEW / testimonials.length) }, () => testimonials).flat()
+    : testimonials;
 
   return (
     <Swiper
@@ -56,37 +53,20 @@ export default function Slider({ testimonials }: { testimonials?: ITestimonial[]
       className={styles.slider}
     >
       {
-        !!data
-          ? data.map((testimonial, index) => {
-            return (
-              <SwiperSlide key={index}>
-                <Card testimonial={testimonial} />
-              </SwiperSlide>
-            );
-          })
-          : <FallbackSwiper />
+        data.map((testimonial, index) => {
+          return (
+            <SwiperSlide key={index}>
+              <Card testimonial={testimonial} />
+            </SwiperSlide>
+          );
+        })
       }
     </Swiper>
   );
 }
 
-function Card({ testimonial }: { testimonial?: ITestimonial }) {
+function Card({ testimonial }: { testimonial: ITestimonial }) {
   const [isLoading, setIsLoading] = React.useState<boolean>(true);
-
-  if (!testimonial) {
-    return (
-      <article className={styles.card}>
-        <figure className={styles.imageWrapper}>
-          <Skeleton variant="rectangular" width={200} height={300} sx={{ borderRadius: "16px", display: "block", mb: "10px" }} />
-        </figure>
-        <div className={styles.text}>
-          <blockquote>
-            <Skeleton variant="text" width={260} height={100} />
-          </blockquote>
-        </div>
-      </article>
-    );
-  }
 
   return (
     <article className={styles.card}>
@@ -111,17 +91,5 @@ function Card({ testimonial }: { testimonial?: ITestimonial }) {
         </blockquote>
       </div>
     </article>
-  )
-}
-
-function FallbackSwiper() {
-  return (
-    <SwiperSlide>
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-    </SwiperSlide>
   )
 }

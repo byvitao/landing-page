@@ -25,7 +25,7 @@ export default async function FAQ() {
 }
 
 async function FaqList() {
-  const faqs = await getFaqs(); // Fetching happens inside the boundary
+  const faqs = await getFaqs();
   return (
     <>
       {faqs.map((item, index) => (

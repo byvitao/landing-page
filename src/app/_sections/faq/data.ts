@@ -1,4 +1,6 @@
 import { getFromApi } from "@/shared/api";
+import { revalidateMidNight } from "@/utils/revalidates";
+import { cacheLife } from "next/cache";
 
 export interface IFaq {
   question: string;
@@ -25,6 +27,8 @@ export const faqsFallback: IFaq[] = [
 ];
 
 export async function getFaqs(): Promise<IFaq[]> {
+  "use cache";
+  cacheLife({ revalidate: revalidateMidNight() });
   const response = await getFromApi<IFaq[]>("/landing-page/faqs");
 
   if (!response.success || !response.data) {

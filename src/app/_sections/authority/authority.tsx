@@ -2,12 +2,13 @@ import Image from "next/image";
 import authorityImage from "@/assets/images/authority.png";
 import Divider from "./divider/divider";
 import styles from "./authority.module.scss";
+import { getYear } from "../footer/data";
 
 const START_PROFESSIONAL_EXP = 2010;
 const START_SPORT_EXP = 2008;
 
-export default function Authority() {
-  const now = new Date().getFullYear();
+export default async function Authority() {
+  const now = await getYear();
   const yearsProfessionalExp = now - START_PROFESSIONAL_EXP;
   const yearsSportExp = now - START_SPORT_EXP;
 

@@ -1,11 +1,11 @@
 import Image from "next/image";
-import Link from "next/link";
 import styles from "./footer.module.scss";
 import { PowerCTIcon } from "@/assets/svgs";
 import hero from "@/assets/images/hero.jpeg";
 import { EMAIL, INSTAGRAM, TELEPHONE, TELEPHONE_FORMATTED, WHATSAPP_TEXT } from "@/shared/contact";
-import { secondsUntilNewYear } from "@/utils/yearly-revalidate";
+import { revalidateNewYear } from "@/utils/revalidates";
 import Divider from "./divider/divider";
+import { getYear } from "./data";
 
 const IconLocation = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -49,10 +49,8 @@ const IconWhatsapp = () => (
   </svg>
 );
 
-export const revalidate = secondsUntilNewYear();
-
-export default function Footer() {
-  const year = new Date().getFullYear();
+export default async function Footer() {
+  const year = await getYear();
 
   return (
     <>
@@ -71,7 +69,7 @@ export default function Footer() {
               <div className={styles.photoWrapper} aria-hidden="true">
                 <Image
                   src={hero}
-                  alt="Foto de Clara Almeida, nutricionista"
+                  alt="Foto de Vitor Hugo Souza, nutricionista"
                   width={80}
                   height={80}
                   sizes="72px"
