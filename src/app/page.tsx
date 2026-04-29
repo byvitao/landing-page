@@ -25,8 +25,8 @@ export const metadata: Metadata = {
     apple: '/apple-touch-icon.png',
   },
   openGraph: {
-    title: "Vitor Hugo Souza | Nutricionista",
-    description: "Nutrição sem frescura, apenas o básico e eficiente.",
+    title: "Vitor Hugo Souza | Nutricionista - Performance e Emagrecimento",
+    description: "Consultoria nutricional especializada em emagrecimento e performance esportiva em Novo Hamburgo, Gramado e Sapiranga. Resultados reais com nutrição eficiente.",
     url: process.env.NEXT_PUBLIC_BASE_URL,
     siteName: "Nutri Vitor Hugo",
     locale: "pt-BR",
