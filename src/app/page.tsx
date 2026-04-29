@@ -14,6 +14,7 @@ import GlobalAnimations from "./global-animations";
 export const metadata: Metadata = {
   title: "Vitor Hugo Souza | Nutricionista em Novo Hamburgo, Gramado e Sapiranga",
   description: "Especialista em emagrecimento, hipertrofia, performance e saúde. Transforme sua vida através de uma alimentação simples, eficiente e sustentável, com um acompanhamento nutricional de ponta.",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || "https://landing-page-sandy-theta-16.vercel.app"),
   robots: {
     index: true,
     follow: true,
