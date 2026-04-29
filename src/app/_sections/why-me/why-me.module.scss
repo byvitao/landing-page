@@ -44,10 +44,6 @@
               padding: 8px;
               border: 2px solid var(--border-color);
               text-transform: uppercase;
-
-              &:first-child {
-                border: 0;
-              }
             }
           }
         }
@@ -55,11 +51,9 @@
         tbody {
           tr {
             .me {
-              background: linear-gradient(
-                135deg,
-                #198754 0%,
-                #117044 100%
-              );
+              background: linear-gradient(135deg,
+                  #198754 0%,
+                  #117044 100%);
               color: #ffffff;
               box-shadow: inset 0 0 0 2px #146c43;
             }
@@ -79,7 +73,7 @@
     }
   }
 
-  @include breakpoints.respond-to("md"){
+  @include breakpoints.respond-to("md") {
     .sectionContent {
       padding: 0 1rem 1rem;
 

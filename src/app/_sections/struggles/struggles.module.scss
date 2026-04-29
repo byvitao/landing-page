@@ -19,6 +19,7 @@
       font-size: clamp(1.5rem, 2.5vw, 2rem);
       text-align: center;
       margin-bottom: 1rem;
+
       .emphasis {
         color: var(--primary-color);
       }
@@ -37,42 +38,51 @@
       grid-template-columns: repeat(2, minmax(250px, 1fr));
       gap: 20px;
 
-      .card {
+      .cardItem {
+        list-style: none;
         display: grid;
-        grid-template-columns: auto 1fr;
-        gap: 32px;
-        align-items: center;
-        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
-        padding: 30px;
-        border-radius: 12px;
-        transition: 
-        transform .3s ease, 
-        border-color .3 ease;
 
-        .icon {
-          &.red {
-            color: #ff3030;
-          }
-          &.orange {
-            color: #fa6400;
-          }
-          &.blue {
-            color: #003c8b;
-          }
-          &.yellow {
-            color: #cabd00;
-          }
-        }
+        .card {
+          display: grid;
+          grid-template-columns: auto 1fr;
+          gap: 32px;
+          align-items: center;
+          box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+          padding: 30px;
+          border-radius: 12px;
+          transition:
+            transform .3s ease,
+            border-color .3 ease;
 
-        .cardContent {
-          text-align: left;
+          .icon {
+            &.red {
+              color: #ff3030;
+            }
+
+            &.orange {
+              color: #fa6400;
+            }
+
+            &.blue {
+              color: #003c8b;
+            }
+
+            &.yellow {
+              color: #cabd00;
+            }
+          }
+
+          .cardContent {
+            text-align: left;
+          }
         }
       }
     }
   }
 
-  @include breakpoints.respond-to("md"){
+  @include breakpoints.respond-to("md") {
     padding: 1rem;
+
     .sectionContent {
       padding: 0 1rem 1rem;
 
@@ -87,20 +97,23 @@
           box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
           padding: 20px;
           border-radius: 12px;
-          transition: 
-          transform .3s ease, 
-          border-color .3 ease;
+          transition:
+            transform .3s ease,
+            border-color .3 ease;
 
           .icon {
             &.red {
               color: #ff3030;
             }
+
             &.orange {
               color: #fa6400;
             }
+
             &.blue {
               color: #003c8b;
             }
+
             &.yellow {
               color: #cabd00;
             }
@@ -108,6 +121,7 @@
 
           .cardContent {
             text-align: left;
+
             h3 {
               font-size: 16px;
             }

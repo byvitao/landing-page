@@ -77,31 +77,33 @@
 }
 
 .contact {
-  font-style: normal;
-  display: flex;
-  flex-direction: column;
-  gap: 0.45rem;
-
-  p {
+  .contactList {
+    font-style: normal;
     display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: var(--light-color);
-    margin: 0;
-  }
+    flex-direction: column;
+    gap: 0.45rem;
 
-  svg {
-    color: var(--soft-color);
-    flex-shrink: 0;
-  }
+    li {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--light-color);
+      margin: 0;
+    }
 
-  a {
-    color: var(--light-color);
-    text-decoration: none;
-    transition: color 0.2s;
-
-    &:hover {
+    svg {
       color: var(--soft-color);
+      flex-shrink: 0;
+    }
+
+    a {
+      color: var(--light-color);
+      text-decoration: none;
+      transition: color 0.2s;
+
+      &:hover {
+        color: var(--soft-color);
+      }
     }
   }
 }

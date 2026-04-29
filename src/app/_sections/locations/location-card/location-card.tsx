@@ -2,8 +2,8 @@ import styles from "./location-card.module.scss";
 import { ILocation } from "../data";
 import Link from "next/link";
 
-export default function LocationCard({ location }: { location: ILocation }){
-  return(
+export default function LocationCard({ location }: { location: ILocation }) {
+  return (
     <article
       className={styles.card}
       itemScope
@@ -11,28 +11,30 @@ export default function LocationCard({ location }: { location: ILocation }){
       data-animate
     >
       <div className={styles.map}>
-        <iframe 
+        <iframe
           src={location.mapUrl}
           width="100%"
           height="250"
           style={{ border: 0 }}
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
-          title={`Mapa ${location.title}`}
+          title={`Mapa interativo mostrando a localização de: ${location.title}`}
         ></iframe>
       </div>
 
       <div className={styles.addressInfo}>
         <h3 itemProp="name">{location.title}</h3>
 
-        <p itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
+        <address itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
           <span itemProp="streetAddress">{location.address}</span><span>, </span>
+          <br />
           <span itemProp="addressLocality">{location.city}</span><span> - </span>
           <span itemProp="addressRegion">{location.state}</span><span> </span>
           <span itemProp="postalCode">{location.zipCode}</span>
-        </p>
+        </address>
       </div>
-      <Link 
+      <Link
+        rel="noopener noreferrer"
         href={`https://www.google.com/maps/dir/?api=1&destination=${location.latitude},${location.longitude}`}
         target="_blank"
         className={styles.routesLink}
@@ -40,7 +42,7 @@ export default function LocationCard({ location }: { location: ILocation }){
         <span>
           <svg
             aria-hidden="true"
-            focusable="false" 
+            focusable="false"
             xmlns="http://www.w3.org/2000/svg"
             width="24"
             height="24"
@@ -50,7 +52,7 @@ export default function LocationCard({ location }: { location: ILocation }){
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className="lucide lucide-map-pin-icon lucide-map-pin"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/>
+            className="lucide lucide-map-pin-icon lucide-map-pin"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" />
           </svg>
           Ver Rotas
         </span>

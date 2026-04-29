@@ -23,9 +23,11 @@
         font-size: clamp(1.25rem, 2vw, 1.75rem);
         text-align: center;
         margin-bottom: 1rem;
+
         .emphasis {
           color: var(--primary-color);
         }
+
         .name {
           color: var(--soft-color);
           font-weight: bolder;
@@ -96,7 +98,7 @@
         box-shadow: 0 10px 30px rgba(0, 0, 0, .1);
         text-align: center;
 
-        span {
+        strong {
           display: block;
           font-size: clamp(.75rem, 1.25vw, 1.25rem);
           font-weight: bold;
@@ -113,7 +115,7 @@
 
   }
 
-  @include breakpoints.respond-to("lg"){
+  @include breakpoints.respond-to("lg") {
     .sectionContent {
       padding: 0 2rem;
       gap: 30px;
@@ -134,23 +136,23 @@
       grid-template-columns: 1fr;
       grid-template-areas: "header" "image" "content";
       justify-items: center;
-      
+
       .content {
         display: flex;
         flex-direction: column;
-        
-        h2 { 
+
+        h2 {
           text-align: center;
         }
-        
+
         .description {
-           text-align: left;
+          text-align: left;
         }
-        
+
         .statsGrid {
           display: grid;
-          grid-template-columns: 1fr 1fr; 
-          
+          grid-template-columns: 1fr 1fr;
+
           .statItem:last-child {
             grid-column: span 2;
           }

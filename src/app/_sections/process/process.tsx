@@ -10,7 +10,7 @@ export default function Process() {
       <section id="method" className={styles.process}>
         <div className={styles.sectionContent}>
           <h2>
-            Como <span className={styles.emphasis}>funciona</span>?
+            Como <strong className={styles.emphasis}>funciona</strong>?
           </h2>
 
           <ol className={styles.stepsGrid}>
@@ -18,16 +18,15 @@ export default function Process() {
               <li key={step.number} data-animate>
                 <article className={styles.stepCard}>
                   <header>
-                    <span className={styles.stepNumber}>{step.number}</span>
-                    <div className={styles.icon}>{step.icon}</div>
+                    <span className={styles.stepNumber} aria-hidden="true">{step.number}</span>
+                    <div className={styles.icon} aria-hidden="true">{step.icon}</div>
                     {step.href ? (
                       <h3>
                         <a
                           href={step.href}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className={styles.ctaBtn}
-                          aria-label="Agendar consulta agora pelo WhatsApp"
+                          className={styles.ctaBtn} aria-label={`Passo ${step.number}: ${step.title}. Agendar agora pelo WhatsApp.`}
                         >
                           <IconWhatsapp />
                           {step.title}

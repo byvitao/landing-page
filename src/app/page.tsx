@@ -12,10 +12,26 @@ import { Metadata } from "next";
 import GlobalAnimations from "./global-animations";
 
 export const metadata: Metadata = {
+  title: "Vitor Hugo Souza | Nutricionista em Novo Hamburgo, Gramado e Sapiranga",
+  description: "Especialista em emagrecimento, hipertrofia, performance e saúde. Transforme sua vida através de uma alimentação simples, eficiente e sustentável, com um acompanhamento nutricional de ponta.",
   robots: {
-    index: false,
-    follow: false,
+    index: true,
+    follow: true,
   },
+  openGraph: {
+    title: "Vitor Hugo Souza | Nutricionista",
+    description: "Nutrição sem frescura, apenas o básico e eficiente.",
+    url: process.env.NEXT_PUBLIC_BASE_URL,
+    siteName: "Nutri Vitor Hugo",
+    locale: "pt-BR",
+    type: "website",
+    images: [{
+      url: "/og-image.jpeg",
+      width: 1200,
+      height: 630,
+      alt: "Vitor Hugo Souza - Nutricionista"
+    }]
+  }
 };
 
 export default async function Home() {

@@ -4,11 +4,11 @@ import solutionImage from "@/assets/images/solution.png";
 
 export default function Solution() {
   return (
-    <section id="solution" className={styles.solution}>
+    <section id="solution" className={styles.solution} aria-labelledby="solution-title">
       <div className={styles.imageWrapper}>
         <Image
           src={solutionImage}
-          alt="Vitor Hugo Souza"
+          alt=""
           quality={60}
           fill
           sizes="(max-width: 1280px) 100vw, 800px"

@@ -50,7 +50,7 @@ export default async function Footer() {
   return (
     <>
       <Divider />
-      <footer className={styles.footer} aria-label="Rodapé do site Nutri Clara">
+      <footer className={styles.footer} aria-label="Rodapé do site Nutri Vitor Hugo Souza">
         <div className={styles.main}>
           <section className={styles.identity} aria-label="Identidade e contato">
             <div className={styles.brand}>
@@ -75,29 +75,33 @@ export default async function Footer() {
             </div>
 
             <address className={styles.contact}>
-              <p>
-                <IconLocation />
-                <span>Rua Primeiro de Março, 467, Novo Hamburgo/RS</span>
-              </p>
-              <p>
-                <IconPhone />
-                <a href={`tel:+${TELEPHONE}`}>{TELEPHONE_FORMATTED}</a>
-              </p>
-              <p>
-                <IconEmail />
-                <a href={`mailto:${EMAIL}`}>
-                  {EMAIL}
-                </a>
-              </p>
+              <ul className={styles.contactList}>
+                <li>
+                  <IconLocation />
+                  <span>Rua Primeiro de Março, 467, Novo Hamburgo/RS</span>
+                </li>
+                <li>
+                  <IconPhone />
+                  <a href={`tel:+${TELEPHONE}`} aria-label={`Ligar para ${TELEPHONE_FORMATTED}`}>
+                    {TELEPHONE_FORMATTED}
+                  </a>
+                </li>
+                <li>
+                  <IconEmail />
+                  <a href={`mailto:${EMAIL}`} aria-label={`Enviar e-mail para ${EMAIL}`}>
+                    {EMAIL}
+                  </a>
+                </li>
+              </ul>
             </address>
 
             <p className={styles.bio}>
-              Nutricionista graduado (CRN16209D), focado em saúde e performance.
+              Nutricionista graduado (<strong>CRN16209D</strong>), focado em saúde e performance.
             </p>
           </section>
 
           <section className={styles.social} aria-label="Redes sociais">
-            <h2 className={styles.colTitle}>Redes Sociais</h2>
+            <h3 className={styles.colTitle}>Redes Sociais</h3>
             <p className={styles.socialHandle}>
               <IconInstagram />
               <a
@@ -114,7 +118,7 @@ export default async function Footer() {
           <div className={styles.divider} role="separator" aria-hidden="true" />
 
           <section className={styles.cta} aria-label="Agende sua consulta">
-            <h2 className={styles.ctaTitle}>AGENDE SUA CONSULTA</h2>
+            <h3 className={styles.ctaTitle}>AGENDE SUA CONSULTA</h3>
             <a
               href={`https://wa.me/${TELEPHONE}?text=${encodeURIComponent(WHATSAPP_TEXT)}`}
               target="_blank"

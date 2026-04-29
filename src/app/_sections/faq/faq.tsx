@@ -30,7 +30,7 @@ async function FaqList() {
     <>
       {faqs.map((item, index) => (
         <details key={index} className={styles.faqItem} data-animate suppressHydrationWarning>
-          <summary className={styles.question}>
+          <summary className={styles.question} role="button">
             {item.question}
             <div className={styles.chevronWrapper}>
               <span className={styles.line}></span>

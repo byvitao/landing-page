@@ -12,7 +12,7 @@ export default function Hero() {
       <section id="hero" className={styles.hero}>
         <Image
           src={heroBg}
-          alt="Imagem de fundo escura"
+          alt=""
           fill
           sizes="100vw"
           quality={40}
@@ -22,7 +22,7 @@ export default function Hero() {
         />
         <div className={styles.content}>
           <h1 className={styles.title}>
-            Nutrição sem frescura, apenas o <span className={styles.emphasis} >básico</span> e <span className={styles.emphasis} >eficiente</span>.
+            Nutrição sem frescura, apenas o <strong className={styles.emphasis} >básico</strong> e <strong className={styles.emphasis} >eficiente</strong>.
           </h1>
 
           <p className={styles.description}>
@@ -31,7 +31,10 @@ export default function Hero() {
           </p>
 
           <div className={styles.ctaGroup}>
-            <Link href={`https://wa.me/${TELEPHONE}?text=${encodeURIComponent(WHATSAPP_TEXT)}`} className={styles.primaryBtn}>
+            <Link
+              href={`https://wa.me/${TELEPHONE}?text=${encodeURIComponent(WHATSAPP_TEXT)}`}
+              rel="noopener noreferrer"
+              className={styles.primaryBtn}>
               <svg
                 aria-hidden="true"
                 focusable="false"
@@ -52,9 +55,9 @@ export default function Hero() {
             </Link>
           </div>
 
-          <p className={styles.service}>
+          <address className={styles.service}>
             Atedimento em Novo Hamburgo, Sapiranga e Gramado • CRN16209D
-          </p>
+          </address>
         </div>
 
         <div className={styles.imageWrapper}>

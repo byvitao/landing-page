@@ -51,6 +51,7 @@ export default function Slider({ testimonials }: { testimonials: ITestimonial[] 
     <Swiper
       {...swiperConfig}
       className={styles.slider}
+      aria-label="Carrossel de depoimento de pacientes"
     >
       {
         data.map((testimonial, index) => {
@@ -75,7 +76,7 @@ function Card({ testimonial }: { testimonial: ITestimonial }) {
         <Image
           src={testimonial.image}
           loader={cloudinaryLoader}
-          alt={`Depoimento: ${testimonial.description}`}
+          alt="Depoimento de paciente"
           width={200}
           height={300}
           sizes="200px"
@@ -86,7 +87,7 @@ function Card({ testimonial }: { testimonial: ITestimonial }) {
         />
       </figure>
       <div className={styles.text}>
-        <blockquote>
+        <blockquote cite={testimonial.image || undefined}>
           <p>"{testimonial.description}"</p>
         </blockquote>
       </div>
