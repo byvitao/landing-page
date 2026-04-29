@@ -18,6 +18,11 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+  },
   openGraph: {
     title: "Vitor Hugo Souza | Nutricionista",
     description: "Nutrição sem frescura, apenas o básico e eficiente.",
@@ -30,7 +35,7 @@ export const metadata: Metadata = {
       width: 1200,
       height: 630,
       alt: "Vitor Hugo Souza - Nutricionista"
-    }]
+    }],
   }
 };
 
