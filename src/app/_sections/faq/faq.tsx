@@ -3,6 +3,7 @@ import { getFaqs } from "./data";
 import Divider from "./divider/divider";
 import Skeleton from "@mui/material/Skeleton";
 import { Suspense } from "react";
+import { Detail } from "./detail/detail";
 
 export default async function FAQ() {
   return (
@@ -29,18 +30,7 @@ async function FaqList() {
   return (
     <>
       {faqs.map((item, index) => (
-        <details key={index} className={styles.faqItem} data-animate suppressHydrationWarning>
-          <summary className={styles.question} role="button">
-            {item.question}
-            <div className={styles.chevronWrapper}>
-              <span className={styles.line}></span>
-              <span className={styles.line}></span>
-            </div>
-          </summary>
-          <div className={styles.answer}>
-            <p>{item.answer}</p>
-          </div>
-        </details>
+        <Detail key={index} item={item} />
       ))}
     </>
   );
