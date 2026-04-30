@@ -40,7 +40,10 @@ export default function GlobalAnimations() {
         end: "bottom top",
       })
 
-      gsap.utils.toArray<HTMLElement>("[data-animate]").forEach(e => {
+      const animateElement = (e: HTMLElement) => {
+        if (e.dataset.gsapInit) return; // evita duplicar
+        e.dataset.gsapInit = "true";
+
         gsap.from(e, {
           scrollTrigger: {
             trigger: e,
@@ -50,11 +53,27 @@ export default function GlobalAnimations() {
           overwrite: "auto",
           opacity: 0,
           y: 40,
-          duration: .8,
+          duration: 0.8,
           ease: "power2.out",
+        });
+      };
+
+      gsap.utils.toArray<HTMLElement>("[data-animate]").forEach(animateElement);
+
+      const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+          mutation.addedNodes.forEach((node) => {
+            if (!(node instanceof HTMLElement)) return;
+
+            if (node.matches("[data-animate]")) animateElement(node);
+
+
+            node.querySelectorAll<HTMLElement>("[data-animate]").forEach(animateElement);
+          });
         });
       });
 
+      observer.observe(document.body, { childList: true, subtree: true });
 
       const refreshAll = () => {
         ScrollTrigger.refresh();
@@ -74,6 +93,7 @@ export default function GlobalAnimations() {
 
       const timeout = setTimeout(refreshAll, 500);
       return () => {
+        observer.disconnect();
         clearTimeout(timeout);
         window.removeEventListener("load", refreshAll);
         window.removeEventListener("pageshow", refreshAll);

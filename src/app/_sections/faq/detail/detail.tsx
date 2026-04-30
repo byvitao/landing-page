@@ -1,10 +1,19 @@
 "use client";
+import React from "react";
 import { IFaq } from "../data";
 import styles from "../faq.module.scss";
 
-export function Detail({ item }: { item: IFaq }) {
+export default function Detail({ item }: { item: IFaq }) {
+  const ref = React.useRef<HTMLDetailsElement>(null);
+
+  React.useEffect(() => {
+    // Garante estado fechado no cliente após hidratação
+    if (ref.current) {
+      ref.current.removeAttribute("open");
+    }
+  }, []);
   return (
-    <details className={styles.faqItem} data-animate suppressHydrationWarning>
+    <details ref={ref} className={styles.faqItem} data-animate suppressHydrationWarning>
       <summary className={styles.question} role="button">
         {item.question}
         <div className={styles.chevronWrapper}>
