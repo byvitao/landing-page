@@ -21,9 +21,9 @@ export default function Hero() {
           className={styles.background}
         />
         <div className={styles.content}>
-          <h1 className={styles.title}>
+          <p className={styles.title}>
             Nutrição sem frescura, apenas o <strong className={styles.emphasis} >básico</strong> e <strong className={styles.emphasis} >eficiente</strong>.
-          </h1>
+          </p>
 
           <p className={styles.description}>
             Cansado de dietas mirabolantes? Faça parte do time e alcance suas metas através de um plano alimentar
@@ -55,9 +55,9 @@ export default function Hero() {
             </Link>
           </div>
 
-          <address className={styles.service}>
-            Atedimento em Novo Hamburgo, Sapiranga e Gramado • CRN16209D
-          </address>
+          <h1 className={styles.service}>
+            Nutricionista em Novo Hamburgo, Sapiranga e Gramado • CRN16209D
+          </h1>
         </div>
 
         <div className={styles.imageWrapper}>
