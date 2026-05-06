@@ -9,7 +9,6 @@ import FAQ from "./_sections/faq/faq";
 import Locations from "./_sections/locations/locations";
 import Footer from "./_sections/footer/footer";
 import { Metadata } from "next";
-import GlobalAnimations from "./global-animations";
 
 export const metadata: Metadata = {
   verification: {
@@ -46,7 +45,6 @@ export const metadata: Metadata = {
 export default async function Home() {
   return (
     <>
-      <GlobalAnimations />
       <div id="smooth-wrapper">
         <div id="smooth-content">
           <main>
