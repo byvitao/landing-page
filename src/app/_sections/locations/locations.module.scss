@@ -29,9 +29,9 @@
     }
   }
 
-  @include breakpoints.respond-to("md"){
-    .sectionContent{
+  @include breakpoints.respond-to("md") {
+    .sectionContent {
       padding: 0 2rem 2rem;
-    } 
+    }
   }
 }

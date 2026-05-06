@@ -14,8 +14,7 @@
     "next": "16.2.1",
     "react": "19.2.3",
     "react-dom": "19.2.3",
-    "sass": "^1.97.3",
-    "swiper": "^12.1.2"
+    "sass": "^1.97.3"
   },
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",

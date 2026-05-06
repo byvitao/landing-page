@@ -44,23 +44,17 @@ export const metadata: Metadata = {
 
 export default async function Home() {
   return (
-    <>
-      <div id="smooth-wrapper">
-        <div id="smooth-content">
-          <main>
-            <Hero />
-            <Struggles />
-            <Solution />
-            <Testimonials />
-            <Authority />
-            <WhyMe />
-            <Process />
-            <FAQ />
-            <Locations />
-            <Footer />
-          </main>
-        </div>
-      </div>
-    </>
+    <main>
+      <Hero />
+      <Struggles />
+      <Solution />
+      <Testimonials />
+      <Authority />
+      <WhyMe />
+      <Process />
+      <FAQ />
+      <Locations />
+      <Footer />
+    </main>
   );
 }

@@ -8,7 +8,7 @@ export default function LocationCard({ location }: { location: ILocation }) {
       className={styles.card}
       itemScope
       itemType="https://schema.org/Place"
-      data-animate
+      data-animate="location"
     >
       <div className={styles.map}>
         <iframe
