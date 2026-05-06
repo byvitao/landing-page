@@ -10,6 +10,7 @@ import Locations from "./_sections/locations/locations";
 import Footer from "./_sections/footer/footer";
 import { Metadata } from "next";
 import { LenisProvider } from "@/utils/LenisProvider";
+import ClarityInit from "@/utils/Clarity";
 
 export const metadata: Metadata = {
   verification: {
@@ -45,19 +46,22 @@ export const metadata: Metadata = {
 
 export default async function Home() {
   return (
-    <LenisProvider>
-      <main>
-        <Hero />
-        <Struggles />
-        <Solution />
-        <Testimonials />
-        <Authority />
-        <WhyMe />
-        <Process />
-        <FAQ />
-        <Locations />
-        <Footer />
-      </main>
-    </LenisProvider>
+    <>
+      <ClarityInit />
+      <LenisProvider>
+        <main>
+          <Hero />
+          <Struggles />
+          <Solution />
+          <Testimonials />
+          <Authority />
+          <WhyMe />
+          <Process />
+          <FAQ />
+          <Locations />
+          <Footer />
+        </main>
+      </LenisProvider>
+    </>
   );
 }
