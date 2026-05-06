@@ -15,7 +15,7 @@ export default function Process() {
 
           <ol className={styles.stepsGrid}>
             {steps.map((step) => (
-              <li key={step.number} data-animate>
+              <li key={step.number} data-animate="process">
                 <article className={styles.stepCard}>
                   <header>
                     <span className={styles.stepNumber} aria-hidden="true">{step.number}</span>
