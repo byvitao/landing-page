@@ -10,6 +10,7 @@ import Locations from "./_sections/locations/locations";
 import Footer from "./_sections/footer/footer";
 import { Metadata } from "next";
 import { LenisProvider } from "@/utils/LenisProvider";
+import { AnimateOnView } from "@/utils/AnimateOnView";
 
 export const metadata: Metadata = {
   verification: {
@@ -46,6 +47,7 @@ export const metadata: Metadata = {
 export default async function Home() {
   return (
     <LenisProvider>
+      <AnimateOnView />
       <main>
         <Hero />
         <Struggles />

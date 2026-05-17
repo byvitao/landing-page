@@ -41,7 +41,7 @@ function Loading() {
     <>
       {
         [1, 2, 3].map((i) => (
-          <Skeleton variant="rectangular" sx={{ borderRadius: "12px", height: "5rem" }} />
+          <Skeleton key={i} variant="rectangular" sx={{ borderRadius: "12px", height: "5rem" }} />
         ))
       }
     </>
